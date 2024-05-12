@@ -42,8 +42,7 @@ This code represents a smart contract that implemented by require, assert and re
 
 ## Help
 
-I collected bunch of help by my classmates and colleagues as well as in the metacrafters discord community
-```
+I collected bunch of help by my classmates and colleagues as well as in the metacrafters discord community.
 
 ## Authors
 
