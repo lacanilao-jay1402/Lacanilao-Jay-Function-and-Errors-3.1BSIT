@@ -1,25 +1,29 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.6.12 <0.9.0;
+pragma solidity ^0.8.7;
 
 contract MyContract {
-    uint256 public value;
-    address public owner;
+    uint256 constant MAX_VALUE = 30;
+    uint256 public a;
+    uint256 public b;
 
-    constructor() {
-        owner = msg.sender;
+    constructor(uint256 _a, uint256 _b) {
+        a = _a;
+        b = _b;
     }
 
-    function setValue(uint256 _newValue) public {
+    function requireState(uint256 _value) public pure returns (uint256) {
+        require(_value <= MAX_VALUE, "Value exceeds maximum allowed");
+        return _value;
+    }
 
+    function assertState() public view returns (uint256) {
+        uint256 result = a + b;
+        assert(result == 15);
+        return result;
+    }
 
-        require(msg.sender == owner, "Only the owner can set the value");
-
-        assert(_newValue != 0);
-
-        if(_newValue < value) {
-            revert("New value must be greater than or equal to current value");
-        }
-
-        value = _newValue;
+    function revertState(uint256 _dividend, uint256 _divisor) public pure returns (uint256) {
+        require(_divisor != 0, "Zero is not allowed");
+        return _dividend / _divisor;
     }
 }
