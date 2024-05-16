@@ -8,10 +8,18 @@ Creating a Smart Contract by processing the set amount of the three subjects to 
 
 # Functionality
 
-event Enrolled(address indexed participant, string message);
+contract Enrollment {
+
+    // State variables as Subjects
+    uint256 public Math;
+    uint256 public Science;
+    uint256 public English;
+
+    event Enrolled(address indexed participant, string message);
     event SubjectAdded(address indexed participant, string subject, uint256 amount);
 
-These events will emit if the participants enrolls and set an amount in each subjects
+
+These events will emit if the participants enrolls and set an amount in each state variables that serves as Subjects
 
 function setMathAmount(uint256 _amount) public {
         Math = _amount;
