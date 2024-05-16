@@ -72,7 +72,7 @@ function enroll() - it will revert the transaction if the participant did not en
 ## Authors
 
 Jay Lacanilao
-lacanilao_jay @ Discord
+8210409#ntc.edu.ph
 
 
 ## License
