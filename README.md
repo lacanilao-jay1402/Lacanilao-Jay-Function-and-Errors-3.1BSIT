@@ -8,20 +8,17 @@ Creating a Smart Contract by processing the set amount of the three subjects to 
 
 # Functionality
 
-contract Enrollment {
-
+"contract Enrollment {
     // State variables as Subjects
     uint256 public Math;
     uint256 public Science;
     uint256 public English;
-
     event Enrolled(address indexed participant, string message);
-    event SubjectAdded(address indexed participant, string subject, uint256 amount);
-
+    event SubjectAdded(address indexed participant, string subject, uint256 amount);"
 
 These events will emit if the participants enrolls and set an amount in each state variables that serves as Subjects
 
-function setMathAmount(uint256 _amount) public {
+"function setMathAmount(uint256 _amount) public {
         Math = _amount;
         emit SubjectAdded(msg.sender, "Math", _amount);
     }
@@ -41,22 +38,22 @@ These function will serve a user input to set amount in each subjects
  function assertTotal() public view returns (uint256) {
         assert(Math + Science + English > 0);
         return Math + Science + English;
-    }
+    }"
 
 This function will assert the total amount of 3 subjects. If the participants enter an amount, it will return to the total amount
 
- function enroll() public {
+ "function enroll() public {
         require(Math > 0 && Science > 0 && English > 0, "Please enter the amount per subject");
         emit Enrolled(msg.sender, "");
     }
-}
+}"
 
 This function is a revert function. If the participant didn't enter any amount in each subject, the error message will occur
 if there's a set amount, it will emit the "Enrolled" Event
 
 Here is the full code of my Project
 
-// SPDX-License-Identifier: MIT
+"// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract Enrollment {
@@ -99,7 +96,7 @@ contract Enrollment {
         require(Math > 0 && Science > 0 && English > 0, "Please enter the amount per subject");
         emit Enrolled(msg.sender, "");
     }
-}
+}"
 
 
 ## Authors
