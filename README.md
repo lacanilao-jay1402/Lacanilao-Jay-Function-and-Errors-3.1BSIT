@@ -8,7 +8,7 @@ Creating a Smart Contract by processing the set amount of the three subjects to 
 
 # Functionality
 
-    // SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract Enrollment {
@@ -52,6 +52,7 @@ contract Enrollment {
         emit Enrolled(msg.sender, "");
     }
 }
+
 
 This code consists of require, assert and revert functions.
 
