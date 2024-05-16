@@ -8,48 +8,7 @@ Creating a Smart Contract by processing the set amount of the three subjects to 
 
 # Functionality
 
-    event Enrolled(address indexed participant, string message);
-    event SubjectAdded(address indexed participant, string subject, uint256 amount);
-
-These events will emit if the participants enrolls and set an amount in each state variables that serves as Subjects.
-
-function setMathAmount(uint256 _amount) public {
-        Math = _amount;
-        emit SubjectAdded(msg.sender, "Math", _amount);
-    }
-
-    function setScienceAmount(uint256 _amount) public {
-        Science = _amount;
-        emit SubjectAdded(msg.sender, "Science", _amount);
-    }
-
-    function setEnglishAmount(uint256 _amount) public {
-        English = _amount;
-        emit SubjectAdded(msg.sender, "English", _amount);
-    }
-
-These function will serve a user input to set amount in each subjects.
-
- function assertTotal() public view returns (uint256) {
-        assert(Math + Science + English > 0);
-        return Math + Science + English;
-    }
-
-This function will assert the total amount of 3 subjects. If the participants enter an amount, it will return to the total amount.
-
- function enroll() public {
-        require(Math > 0 && Science > 0 && English > 0, "Please enter the amount per subject");
-        emit Enrolled(msg.sender, "");
-    }
-}
-
-This function is a revert function. If the participant didn't enter any amount in each subject, the error message will occur
-if there's a set amount, it will emit the "Enrolled" Event.
-
-
-Here is the full code of my Project.
-
-// SPDX-License-Identifier: MIT
+    // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract Enrollment {
@@ -93,6 +52,20 @@ contract Enrollment {
         emit Enrolled(msg.sender, "");
     }
 }
+
+This code consists of require, assert and revert functions.
+
+uint256 public Math;
+uint256 public Science;
+uint256 public English; - State variables as Subjects
+
+event Enrolled() and event SubjectAdded() - emits if the participant set amount in each subject and if the participang enroll
+
+require statements - function setMathAmount, setScienceAmount and setEnglishAmount is a user input where the participant will enter an amount
+
+function assertTotal() - this function will assert the total amount of the 3 subject by adding it. It will also check if these subjects are greater than zero, if yes, it will return the total amount
+
+function enroll() - it will revert the transaction if the participant did not enter any amount in each subject. The error message will occur, "Please enter the amount per subject"
 
 
 ## Authors
